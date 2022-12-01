@@ -36,6 +36,7 @@ class GetMyReviewUseCaseImpl @Inject constructor(
 
     private fun buildRateAndReview(rating: Int): RateAndReview {
         return RateAndReview(
+            authorAvatar = coreR.drawable.anonymous,
             titleId = coreR.string.Rate_and_review,
             hintId = coreR.string.Share_your_experience_to_help_others,
             rating = rating,

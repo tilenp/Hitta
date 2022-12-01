@@ -12,11 +12,19 @@ class CompanyReviewsViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(companyReviews: CompanyReviews) {
+        setScore(companyReviews.score)
+        setReviewCount(companyReviews.count)
+    }
+
+    private fun setScore(score: Double) {
+        binding.scoreTextView.text = score.toString()
+    }
+
+    private fun setReviewCount(count: Long) {
         with(binding) {
-            scoreTextView.text = companyReviews.score.toString()
             countTextView.text = String.format(
                 countTextView.context.getString(R.string.company_reviews_count_format),
-                companyReviews.count
+                count
             )
         }
     }

@@ -119,7 +119,7 @@
         android:background="@null"
         android:gravity="top"
         android:hint="@string/Add_more_details_on_your_experience"
-        android:minLines="3"
+        android:minLines="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/comment_divider" />

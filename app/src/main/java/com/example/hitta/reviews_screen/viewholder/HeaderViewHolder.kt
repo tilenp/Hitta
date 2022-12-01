@@ -12,9 +12,7 @@ class HeaderViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(header: Header) {
-        with(binding) {
-            headerTextView.setText(header.titleId)
-        }
+        binding.headerTextView.setText(header.titleId)
     }
 
     companion object {

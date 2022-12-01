@@ -8,15 +8,16 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hitta.R
+import com.example.core.R as coreR
 
 class ReviewItemDecorator(
     context: Context,
 ) : RecyclerView.ItemDecoration() {
 
-    private val dividerHeight = context.resources.getDimensionPixelSize(R.dimen.spacing_1)
-    private val verticalMargin = context.resources.getDimensionPixelSize(R.dimen.spacing_12)
+    private val dividerHeight = context.resources.getDimensionPixelSize(coreR.dimen.spacing_1)
+    private val verticalMargin = context.resources.getDimensionPixelSize(coreR.dimen.spacing_12)
     private val dividerPaint = Paint().apply {
-        color = ContextCompat.getColor(context, R.color.light_grey)
+        color = ContextCompat.getColor(context, coreR.color.light_grey)
     }
 
     override fun getItemOffsets(

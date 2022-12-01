@@ -6,10 +6,15 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.example.domain.model.RateAndReview
 import com.example.hitta.R
 import com.example.hitta.databinding.ViewHolderRateAndReviewBinding
 import com.example.hitta.reviews_screen.events.RateAndReviewEvents
+import com.example.core.R as coreR
 
 @SuppressLint("ClickableViewAccessibility")
 class RateAndReviewViewHolder(
@@ -33,11 +38,39 @@ class RateAndReviewViewHolder(
 
     fun bind(rateAndReview: RateAndReview) {
         this.rateAndReview = rateAndReview
+        setAvatar()
+        setTitle()
+        setHint()
+        setRating()
+    }
+
+    private fun setAvatar() {
+        val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
+        with(binding) {
+            Glide.with(imageView)
+                .load(rateAndReview.authorAvatar)
+                .transition(DrawableTransitionOptions.withCrossFade(factory))
+                .transform(CircleCrop())
+                .placeholder(coreR.drawable.anonymous)
+                .error(coreR.drawable.anonymous)
+                .into(imageView)
+        }
+    }
+
+    private fun setTitle() {
         with(binding) {
             titleTextView.text = titleTextView.context.getString(rateAndReview.titleId)
-            hintTextView.text = hintTextView.context.getString(rateAndReview.hintId)
-            ratingBar.rating = rateAndReview.rating.toFloat()
         }
+    }
+
+    private fun setHint() {
+        with(binding) {
+            hintTextView.text = hintTextView.context.getString(rateAndReview.hintId)
+        }
+    }
+
+    private fun setRating() {
+        binding.ratingBar.rating = rateAndReview.rating.toFloat()
     }
 
     companion object {

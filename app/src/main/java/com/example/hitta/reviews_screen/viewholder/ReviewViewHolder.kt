@@ -26,13 +26,11 @@ class ReviewViewHolder(
     }
 
     fun bind(review: Review) {
-        with(binding) {
-            setAvatar(review.authorAvatar)
-            setAuthorName(review.authorName)
-            ratingBar.rating = review.rating.toFloat()
-            metaDataTextView.text = "${review.timestamp} - ${review.ratingDomain}"
-            setDescription(review.description)
-        }
+        setAvatar(review.authorAvatar)
+        setAuthorName(review.authorName)
+        setRating(review.rating)
+        setRatingMetaData(review)
+        setDescription(review.description)
     }
 
     private fun setAvatar(authorAvatar: Int?) {
@@ -57,6 +55,20 @@ class ReviewViewHolder(
         }
     }
 
+    private fun setRating(rating: Int) {
+        binding.ratingBar.rating = rating.toFloat()
+    }
+
+    private fun setRatingMetaData(review: Review) {
+        with(binding) {
+            metaDataTextView.text = String.format(
+                metaDataTextView.context.getString(R.string.review_meta_data_format),
+                review.timestamp,
+                review.ratingDomain,
+            )
+        }
+    }
+
     private fun setDescription(description: String) {
         with(binding) {
             when {
@@ -64,7 +76,6 @@ class ReviewViewHolder(
                     describeExperienceTextView.isVisible = false
                     descriptionTextView.isVisible = true
                     descriptionTextView.text = description
-
                 }
                 else -> {
                     descriptionTextView.isVisible = false

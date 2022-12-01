@@ -1,5 +1,6 @@
 package com.example.domain.model
 
+import androidx.annotation.StringRes
 import com.example.core.R as coreR
 
 sealed interface ReviewItem
@@ -16,7 +17,8 @@ data class CompanyReviews(
 )
 
 data class RateAndReview(
-    val titleId: Int = coreR.string.empty_string,
+    val authorAvatar: Int? = null,
+    @StringRes val titleId: Int = coreR.string.empty_string,
     val hintId: Int = coreR.string.empty_string,
     val rating: Int = 0,
 ) : ReviewItem
