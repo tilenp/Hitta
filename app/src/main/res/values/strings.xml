@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Hitta</string>
+
+    <!-- Reviews -->
+    <string name="Reviews">Reviews</string>
+    <string name="company_reviews_count_format">from %s ratings</string>
+    <string name="View_all_reviews">View all reviews</string>
+    <string name="Describe_your_experience">Describe your experience</string>
+    <string name="Latest_reviews">Latest reviews</string>
+
+    <!-- Review -->
+    <string-array name="rating_text">
+        <item>I hated it</item>
+        <item>I didn\'t like it</item>
+        <item>It was OK</item>
+        <item>I liked it</item>
+        <item>I loved it</item>
+    </string-array>
+    <string name="Your_name">Your name</string>
+    <string name="Add_more_details_on_your_experience">Add more details on your experience…</string>
+
+    <!-- Thank you message -->
+    <string name="Thank_you_for_your_review">Thank you for your review</string>
+    <string name="You_re_helping_others_make_smarter_decisions_every_day">You\'re helping others making smarter decisions every day.</string>
+
 </resources>
