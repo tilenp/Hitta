@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General -->
+    <string name="empty_string" translatable="false" />
+    <string name="Rate_and_review">Rate and review</string>
+    <string name="Share_your_experience_to_help_others">Share your experience to help others</string>
+    <string name="Okay">Okay!</string>
+    <string name="Close">Close</string>
+    <string name="Save">Save</string>
+    <string name="Anonymous">Anonymous</string>
+
+
+    <!-- errors -->
+    <string name="Network_not_available">Network not available</string>
+    <string name="Server_error">Service unavailable, please try again later</string>
+    <string name="Unknown_error">Unknown error</string>
+</resources>
