@@ -88,9 +88,11 @@ class ReviewsFragment : Fragment(), RateAndReviewEvents, ReviewEvents {
 
     override fun onRateClick(rating: Float) {
         viewModel.onRateClick(rating = rating)
+        findNavController().navigate(R.id.action_reviewsFragment_to_reviewFragment)
     }
 
     override fun onDescribeExperienceClick() {
+        findNavController().navigate(R.id.action_reviewsFragment_to_reviewFragment)
     }
 
     override fun onDestroy() {
