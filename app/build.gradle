@@ -1,16 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
     namespace 'com.example.hitta'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.hitta"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -30,15 +32,59 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation project(path: ':core')
+    implementation project(path: ':domain')
+
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    /** Coroutines **/
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+
+    /** Glide **/
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+
+    /** Hilt **/
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.4"
+
+    /** JUnit 5 **/
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+
+    /** MockK **/
+    testImplementation "io.mockk:mockk:1.13.2"
+    testImplementation "io.mockk:mockk-agent-jvm:1.13.2"
+
+    /** Navigation **/
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+
+    /** Turbine **/
+    testImplementation 'app.cash.turbine:turbine:0.11.0'
+
+    /** ViewModel **/
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+}
+
+kapt {
+    correctErrorTypes true
 }
