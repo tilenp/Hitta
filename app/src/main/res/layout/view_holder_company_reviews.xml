@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/score_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners_yellow"
+        android:padding="@dimen/spacing_8"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textStyle="bold"
+        tools:text="4.1" />
+
+    <TextView
+        android:id="@+id/count_text_view"
+        style="@style/Widget.Hitta.HintText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_8"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:layout_weight="1"
+        tools:text="from 27 ratings" />
+
+    <TextView
+        android:id="@+id/view_all_reviews_text_view"
+        style="@style/Widget.Hitta.ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/View_all_reviews" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
