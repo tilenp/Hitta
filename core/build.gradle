@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.data'
+    namespace 'com.example.core'
     compileSdk 33
 
     defaultConfig {
@@ -32,13 +32,7 @@ android {
     }
 }
 
-tasks.withType(Test) {
-    useJUnitPlatform()
-}
-
 dependencies {
-
-    implementation project(path: ':core')
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -47,34 +41,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    /** Coroutines **/
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
-
     /** Hilt **/
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
-
-    /** JUnit 5 **/
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
-
-    /** MockK **/
-    testImplementation "io.mockk:mockk:1.13.2"
-    testImplementation "io.mockk:mockk-agent-jvm:1.13.2"
-
-    /** Mock web server **/
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.10.0"
-
-    /** OkHttp **/
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
-
-    /** Retrofit **/
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
-    /** Turbine **/
-    testImplementation 'app.cash.turbine:turbine:0.11.0'
-}
-
-kapt {
-    correctErrorTypes true
 }
