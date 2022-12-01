@@ -16,3 +16,4 @@ rootProject.name = "Hitta"
 include ':app'
 include ':data'
 include ':core'
+include ':domain'
